@@ -24,6 +24,7 @@ public class gyro extends LinearOpMode {
             telemetry.update();
             d.SP("l",1);
             d.SP("r",-1);
+            // test
 //          d.rotatePID("l",90);
 
 //            stage = "eof";
