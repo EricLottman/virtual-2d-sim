@@ -38,7 +38,6 @@ package com.qualcomm.hardware.bosch;
 
 import com.qualcomm.robotcore.hardware.HardwareDevice;
 
-import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
@@ -52,8 +51,6 @@ public interface BNO055IMU extends HardwareDevice {
     boolean initialize(Parameters parameters);
 
     Parameters getParameters();
-
-    Orientation getRobotOrientation(AxesReference intrinsic, AxesOrder zyx, org.firstinspires.ftc.robotcore.external.navigation.AngleUnit radians);
 
     /**
      * Parameters for initialization of the BNO055IMU

@@ -1,13 +1,21 @@
 package com.qualcomm.hardware.bosch;
 
 import com.qualcomm.robotcore.hardware.IMU;
-import org.firstinspires.ftc.robotcore.external.navigation.*;
+
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AngularVelocity;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+import org.firstinspires.ftc.robotcore.external.navigation.Quaternion;
+import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles;
+
 import virtual_robot.controller.VirtualBot;
 
 public class BNO055IMUNew implements IMU {
 
     private VirtualBot bot = null;
-    private IMU.Parameters parameters = null;
+    private Parameters parameters = null;
     private double initialHeadingRadians = 0;
     private double headingRadians = 0;
     private double angularVelocityRadiansPerSec = 0;
@@ -30,7 +38,7 @@ public class BNO055IMUNew implements IMU {
      * @param parameters Parameters object
      * @return true to indicate initialization was successful
      */
-    public synchronized boolean initialize(IMU.Parameters parameters){
+    public synchronized boolean initialize(Parameters parameters){
         initialized = true;
         this.parameters = parameters;
         double tempHeadingRadians = bot.getHeadingRadians();
@@ -40,7 +48,7 @@ public class BNO055IMUNew implements IMU {
         return true;
     }
 
-    public synchronized IMU.Parameters getParameters() { return parameters; }
+    public synchronized Parameters getParameters() { return parameters; }
 
     /**
      * Close the BNO055IMU
@@ -67,7 +75,7 @@ public class BNO055IMUNew implements IMU {
 
         double piOver2;
         double firstAngle = 0.0, secondAngle = 0.0, thirdAngle = 0.0;
-        if (angleUnit == org.firstinspires.ftc.robotcore.external.navigation.AngleUnit.DEGREES) {
+        if (angleUnit == AngleUnit.DEGREES) {
             heading *= 180.0 / Math.PI;
             piOver2 = Math.PI / 2.0;
         } else {

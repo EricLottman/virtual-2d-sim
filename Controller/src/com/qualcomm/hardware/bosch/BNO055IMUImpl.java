@@ -1,9 +1,10 @@
 package com.qualcomm.hardware.bosch;
 
-import virtual_robot.controller.VirtualBot;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+
+import virtual_robot.controller.VirtualBot;
 
 /**
  * Implementation of the BNO055IMU interface

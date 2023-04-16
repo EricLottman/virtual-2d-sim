@@ -14,9 +14,9 @@ public class drivetrain extends subsystem {
     ElapsedTime timer = new ElapsedTime();
     public static DcMotorEx frontLeft, frontRight,backLeft,backRight;
     private Orientation lastAngles = new Orientation();
+    double globalAngle, correction;
     IMU imu;
     private static constants c = new constants();
-    double globalAngle, correction;
     double power = c.power;
 
     public drivetrain(HardwareMap hwMap) {
