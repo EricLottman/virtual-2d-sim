@@ -5,6 +5,8 @@ import static org.firstinspires.ftc.teamcode.myopmodes.subsystems.ease_commands.
 import static java.lang.Math.PI;
 import static java.lang.Math.round;
 
+import androidx.annotation.NonNull;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -37,20 +39,20 @@ public class ConvinceJess extends LinearOpMode {
         frontRight = hardwareMap.get(DcMotorEx.class, "front_right_motor");
         backLeft = hardwareMap.get(DcMotorEx.class, "back_left_motor");
         backRight = hardwareMap.get(DcMotorEx.class, "back_right_motor");
-        backLeft.setDirection(DcMotor.Direction.REVERSE);
-        frontLeft.setDirection(DcMotor.Direction.REVERSE);
-        backLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        backLeft.setDirection(DcMotorEx.Direction.REVERSE);
+        frontLeft.setDirection(DcMotorEx.Direction.REVERSE);
+        backLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        frontLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        frontRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        backRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        backLeft.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        frontLeft.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        frontRight.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        backRight.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        frontLeft.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
+        backLeft.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
+        backRight.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
+        frontRight.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
         imu = hardwareMap.get(IMU.class, "imu");
         DistanceSensor frontDistance = hardwareMap.get(DistanceSensor.class, "front_distance");
         DistanceSensor leftDistance = hardwareMap.get(DistanceSensor.class, "left_distance");
@@ -109,7 +111,7 @@ public class ConvinceJess extends LinearOpMode {
             }
         }
     }
-    public static void SP (String m, double p) {
+    public static void SP (@NonNull String m, double p) {
         switch(m){
             case"fl":frontLeft.setPower(p);break;
             case"fr":frontRight.setPower(p);break;
@@ -122,7 +124,7 @@ public class ConvinceJess extends LinearOpMode {
             case"dt":frontLeft.setPower(p);frontRight.setPower(p);backLeft.setPower(p);backRight.setPower(p);break;
         }
     }
-    public static void STP (String m, int tp) {
+    public static void STP (@NonNull String m, int tp) {
         switch(m){
             case"fl":frontLeft.setTargetPosition(tp);break;
             case"fr":frontRight.setTargetPosition(tp);break;
@@ -135,56 +137,56 @@ public class ConvinceJess extends LinearOpMode {
             case"dt":frontLeft.setTargetPosition(tp);frontRight.setTargetPosition(tp);backLeft.setTargetPosition(tp);backRight.setTargetPosition(tp);break;
         }
     }
-    public static void RTP (String m) {
+    public static void RTP (@NonNull String m) {
         switch(m){
-            case"fl":frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);break;
-            case"fr":frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);break;
-            case"bl":backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);break;
-            case"br":backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);break;
-            case"f":frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);break;
-            case"b":backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);break;
-            case"l":frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);break;
-            case"r":frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);break;
-            case"dt":frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);break;
+            case"fl":frontLeft.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);break;
+            case"fr":frontRight.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);break;
+            case"bl":backLeft.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);break;
+            case"br":backRight.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);break;
+            case"f":frontLeft.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);frontRight.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);break;
+            case"b":backLeft.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);backRight.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);break;
+            case"l":frontLeft.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);backLeft.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);break;
+            case"r":frontRight.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);backRight.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);break;
+            case"dt":frontLeft.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);frontRight.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);backLeft.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);backRight.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);break;
         }
     }
-    public static void SAR (String m) {
+    public static void SAR (@NonNull String m) {
         switch(m){
-            case"fl":frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);break;
-            case"fr":frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);break;
-            case"bl":backLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);break;
-            case"br":backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);break;
-            case"f":frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);break;
-            case"b":backLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);break;
-            case"l":frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);backLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);break;
-            case"r":frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);break;
-            case"dt":frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);backLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);break;
+            case"fl":frontLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);break;
+            case"fr":frontRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);break;
+            case"bl":backLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);break;
+            case"br":backRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);break;
+            case"f":frontLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);frontRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);break;
+            case"b":backLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);backRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);break;
+            case"l":frontLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);backLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);break;
+            case"r":frontRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);backRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);break;
+            case"dt":frontLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);frontRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);backLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);backRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);break;
         }
     }
-    public static void RWE (String m) {
+    public static void RWE (@NonNull String m) {
         switch(m){
-            case"fl":frontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);break;
-            case"fr":frontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);break;
-            case"bl":backLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);break;
-            case"br":backRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);break;
-            case"f":frontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);frontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);break;
-            case"b":backLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);backRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);break;
-            case"l":frontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);backLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);break;
-            case"r":frontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);backRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);break;
-            case"dt":frontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);frontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);backLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);backRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);break;
+            case"fl":frontLeft.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);break;
+            case"fr":frontRight.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);break;
+            case"bl":backLeft.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);break;
+            case"br":backRight.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);break;
+            case"f":frontLeft.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);frontRight.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);break;
+            case"b":backLeft.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);backRight.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);break;
+            case"l":frontLeft.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);backLeft.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);break;
+            case"r":frontRight.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);backRight.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);break;
+            case"dt":frontLeft.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);frontRight.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);backLeft.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);backRight.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);break;
         }
     }
-    public static void RUE (String m) {
+    public static void RUE (@NonNull String m) {
         switch(m){
-            case"fl":frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);break;
-            case"fr":frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);break;
-            case"bl":backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);break;
-            case"br":backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);break;
-            case"f":frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);break;
-            case"b":backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);break;
-            case"l":frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);break;
-            case"r":frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);break;
-            case"dt":frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);break;
+            case"fl":frontLeft.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);break;
+            case"fr":frontRight.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);break;
+            case"bl":backLeft.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);break;
+            case"br":backRight.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);break;
+            case"f":frontLeft.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);frontRight.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);break;
+            case"b":backLeft.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);backRight.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);break;
+            case"l":frontLeft.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);backLeft.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);break;
+            case"r":frontRight.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);backRight.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);break;
+            case"dt":frontLeft.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);frontRight.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);backLeft.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);backRight.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);break;
         }
     }
     public static void ST(int i) {
@@ -211,7 +213,7 @@ public class ConvinceJess extends LinearOpMode {
         lastAngles = angles;
         return globalAngle;
     }
-    public void drive (String direction, double inches, double speed){
+    public void drive (@NonNull String direction, double inches, double speed){
         SAR("dt");
         RUE("dt");
         switch(direction){
