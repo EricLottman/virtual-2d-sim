@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.myopmodes.opmodes.drive.opmode;
+package org.firstinspires.ftc.teamcode.camewithsim.drive.opmode;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -15,8 +15,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.RobotLog;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.myopmodes.opmodes.drive.SampleMecanumDrive;
-import org.firstinspires.ftc.teamcode.myopmodes.opmodes.drive.DriveConstants;
+import org.firstinspires.ftc.teamcode.camewithsim.drive.DriveConstants;
+import org.firstinspires.ftc.teamcode.camewithsim.drive.SampleMecanumDrive;
 
 import java.util.List;
 

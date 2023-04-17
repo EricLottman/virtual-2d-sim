@@ -24,7 +24,7 @@ public class constants {
 
     // default power for closed loop methods
     // its kinda like a "scanning" speed
-    final double power = .30;
+    final double power = 1.0;
 
     // PID algorithm values
     final double P = 1; // gain
