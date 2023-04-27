@@ -1,15 +1,11 @@
 package org.firstinspires.ftc.teamcode.myopmodes.opmodes;
 
-import static org.firstinspires.ftc.teamcode.myopmodes.subsystems.ease_commands.inTT_dt;
-
-import static java.lang.Math.PI;
-import static java.lang.Math.round;
+import static java.lang.Math.*;
 
 import androidx.annotation.NonNull;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.IMU;
